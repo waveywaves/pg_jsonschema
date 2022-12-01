@@ -1,0 +1,15 @@
+version: '3'
+x-uffizzi:
+  ingress:
+    service: db
+    port: 5432
+services:
+  db:
+    container_name: pg_jsonschema_db
+    image: "${APP_IMAGE}" 
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app
